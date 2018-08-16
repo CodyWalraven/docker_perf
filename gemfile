@@ -1,1 +1,2 @@
 gem "selenium-webdriver"
+gem "fxruby"

@@ -23,7 +23,7 @@ class Asset
 
         #Read last asset id from file and convert the value to a string
         @last_asset_id = File.readlines 'last_asset_id.txt'
-        @last_asset_id.each_with_index{|line, i| puts "#{i+1}: #{line}"}
+        #@last_asset_id.each_with_index{|line, i| puts "#{i+1}: #{line}"}
         incremented_asset_id = @last_asset_id.to_s
 
 

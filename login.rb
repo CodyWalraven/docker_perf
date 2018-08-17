@@ -17,9 +17,7 @@ class Login
     def login_system (email,password,load_from_file)
         if load_from_file == true
             @password_from_file = File.readlines 'password.txt'
-            @password_from_file.each_with_index{|line, i| puts "#{i+1}: #{line}"}
             @email_from_file = File.readlines 'email.txt'
-            @email_from_file.each_with_index{|line,i| puts "#{i+1}: #{line}"}
             @email_for_password_reset = @email_from_file
             @login_element.send_keys @email_from_file
             @password_element.send_keys @password_from_file

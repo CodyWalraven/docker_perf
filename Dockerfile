@@ -14,13 +14,13 @@ RUN sudo apt-get -y install libffi-dev
 
 COPY . /app
 WORKDIR /app
-CMD chmod 777 last_asset_id.text
+
 
 RUN sudo gem install bundler
 RUN sudo bundle install
 
 
-CMD chromedriver
+CMD sudo ruby main.rb
 
 
 #This starts chrome with a gui (prob wont work on docker)

@@ -50,6 +50,7 @@ class Asset
     def save
         #This really just presses enter, but eh it saves the item
         $driver.action.send_keys(:enter).perform
+        puts "Succesfully added item"
     end
 
     def full_add_and_save

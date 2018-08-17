@@ -4,7 +4,9 @@ class Login
     attr_accessor :email, :password
  
     def initialize      
-        $driver = Selenium::WebDriver.for :chrome
+        options = Selenium::WebDriver::Chrome::Options.new
+        options.add_argument('--headless')
+        $driver = Selenium::WebDriver.for :chrome, options: options
         $driver.navigate.to "https://login.assetpanda.com/asset_items"
         @login_element = $driver.find_element(name: 'user[email]')
         @password_element = $driver.find_element(name: 'user[password]')

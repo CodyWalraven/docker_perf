@@ -1,22 +1,31 @@
 require "selenium-webdriver"
 
+
 class Login
   attr_accessor :email, :password
 
   def initialize      
-    options = Selenium::WebDriver::Chrome::Options.new
-    #options.add_argument('--headless')
-    $driver = Selenium::WebDriver.for :chrome, options: options
-
-
-    if $ENV == "refactoring"
-      puts "Env is refactoring or stage"
-      $driver.get $URL
+    if $ENV == ("refactoring" || "stage")
+      puts "Logging into refactoring or stage env with https://#{$CREDS}@www.#{$ENV}.assetpanda.com"
+      $URL = "https://#{$CREDS}@www.#{$ENV}.assetpanda.com"
     else
-      $driver.navigate.to "https://#{$ENV}.assetpanda.com/asset_items"
+      $URL = "https://#{$ENV}.assetpanda.com"
     end
+
+    options = Selenium::WebDriver::Chrome::Options.new
+    if $headless
+      options.add_argument('--headless')
+    end
+
+    wait = Selenium::WebDriver::Wait.new(:timeout => 15)
+
+    options.add_argument('--window-size=1366,768')
+    $driver = Selenium::WebDriver.for :chrome, options: options
+    $driver.navigate.to $URL
+
     
     @login_element = $driver.find_element(name: 'user[email]')
+
     @password_element = $driver.find_element(name: 'user[password]')
     @submit_element = $driver.find_element(name: "commit")               
   end

@@ -4,6 +4,8 @@ RUN sudo apt-get update
 RUN sudo apt-get -y install ruby-all-dev \
     && sudo apt-get -y install build-essential software-properties-common 
 
+RUN sudo rm -r /usr/share/doc
+
 COPY . /app
 WORKDIR /app
 

@@ -5,11 +5,11 @@ class Asset
     end
 
     def click_assets
-        $driver.navigate.to "https://login.assetpanda.com/asset_items"       
+      $driver.navigate.to "https://login.assetpanda.com/asset_items"       
     end
 
     def click_add_new_asset
-        $driver.navigate.to "https://login.assetpanda.com/asset_items/new"
+      $driver.navigate.to "https://login.assetpanda.com/asset_items/new"
     end
 
     def slice_brackets(string)
@@ -19,7 +19,7 @@ class Asset
       string.lstrip!
     end
 
-          
+
     def input_asset_info(name)
 
         #Read last asset id from file and convert the value to a string

@@ -5,11 +5,12 @@ class Asset
     end
 
     def click_assets
-      $driver.navigate.to "https://login.assetpanda.com/asset_items"       
+      puts "clicking assets"
+      $driver.navigate.to "#{$URL}/asset_items"       
     end
 
     def click_add_new_asset
-      $driver.navigate.to "https://login.assetpanda.com/asset_items/new"
+      $driver.navigate.to "#{$URL}/asset_items/new"
     end
 
     def slice_brackets(string)

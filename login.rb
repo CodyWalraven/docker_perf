@@ -7,7 +7,15 @@ class Login
     options = Selenium::WebDriver::Chrome::Options.new
     #options.add_argument('--headless')
     $driver = Selenium::WebDriver.for :chrome, options: options
-    $driver.navigate.to "https://login.assetpanda.com/asset_items"
+
+
+    if $ENV == "refactoring"
+      puts "Env is refactoring or stage"
+      $driver.get $URL
+    else
+      $driver.navigate.to "https://#{$ENV}.assetpanda.com/asset_items"
+    end
+    
     @login_element = $driver.find_element(name: 'user[email]')
     @password_element = $driver.find_element(name: 'user[password]')
     @submit_element = $driver.find_element(name: "commit")               

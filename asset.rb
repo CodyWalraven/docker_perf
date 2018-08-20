@@ -15,10 +15,11 @@ class Asset
     def slice_brackets(string)
       string.slice!(0,2)
       string.slice!(-1)
-      string.slice(-1)
+      string.slice(-1)  
       string.lstrip!
     end
 
+          
     def input_asset_info(name)
 
         #Read last asset id from file and convert the value to a string

@@ -2,11 +2,11 @@ require_relative 'asset.rb'
 require_relative 'login.rb'
 
 $CREDS = "staging:q[q9:S2w+M"
-$ENV = "refactoring"
+$ENV = "login"
 
 # staging:q[q9:S2w+M@www.refactoring.assetpanda.com
 
-$headless = false
+$headless = true
 
 
 
